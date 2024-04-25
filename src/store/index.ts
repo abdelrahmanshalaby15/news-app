@@ -7,7 +7,7 @@ export const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use((config) => {
     config.params = {
         ...config.params,
-        apiKey: "7b490556848a46ad98a627d5b81c1bb1"
+        apiKey: "646b510c93f74d4f8d1bd9a242f42a4c"
     };
     return config;
 })
