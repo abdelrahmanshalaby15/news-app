@@ -1,14 +1,15 @@
 import React from "react";
 import { styles } from "./styles";
-import { Image, Text, View } from "react-native";
+import { Alert, Image, Text, TouchableOpacity, View } from "react-native";
 
 interface INewsCardProps {
     imageUrl: string,
     title: string,
+    onPress: () => void,
 }
-export function NewsCard({ imageUrl, title }: INewsCardProps) {
+export function NewsCard({ imageUrl, title, onPress }: INewsCardProps) {
     return (<>
-        <View style={[styles.cardWrapper]}>
+        <TouchableOpacity onPress={onPress} style={[styles.cardWrapper]}>
             <View style={[styles.imageWrapper]}>
                 <Image source={{ uri: imageUrl }} style={[styles.image]} resizeMode="cover" />
             </View>
@@ -17,6 +18,6 @@ export function NewsCard({ imageUrl, title }: INewsCardProps) {
                     {title}
                 </Text>
             </View>
-        </View>
+        </TouchableOpacity>
     </>)
 }

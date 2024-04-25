@@ -70,7 +70,12 @@ export default function NewsListing(props: IProductListingProps) {
                     data={newsItems.articles}
                     keyExtractor={(item => item.publishedAt)}
                     renderItem={(info) => {
-                        return <NewsCard imageUrl={info.item.urlToImage} title={info.item.title} />
+                        return <NewsCard
+                            imageUrl={info.item.urlToImage}
+                            title={info.item.title}
+                            onPress={() => props.navigation.navigate("Details", {
+                                ...info.item
+                            })} />
                     }}
                     onEndReached={handlePaginationChange}
                     onEndReachedThreshold={1}

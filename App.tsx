@@ -28,6 +28,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import HomeScreen from './src/screens/home';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import DetailsScreen from './src/screens/Details';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -74,6 +75,11 @@ function App(): React.JSX.Element {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} options={{
           headerShown: false,
+        }} />
+        <Stack.Screen name="Details" component={DetailsScreen} options={{
+          headerShown: true,
+          headerTitle: "",
+          headerBackTitleVisible: false,
         }} />
       </Stack.Navigator>
       {/* <SafeAreaView style={backgroundStyle}>
