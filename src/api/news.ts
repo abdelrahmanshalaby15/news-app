@@ -4,7 +4,7 @@ import { axiosInstance } from "../store";
 
 export function getHeadlines(q?: string, page: number = 1): Promise<{ totalCount: number, articles: IArticle[] }> {
     return new Promise((resolve, reject) => {
-        axiosInstance.get(`/v2/top-headlines?${q ? `q=${q}` : ""}&page=${page}&country=ae&pageSize=20`).then((res: AxiosResponse<IHeadlinesResponse, any>) => {
+        axiosInstance.get(`/v2/everything?${q ? `q=${q}` : ""}&page=${page}&pageSize=20&domains=techcrunch.com,thenextweb.com,bbc.co.uk,news.google.com`).then((res: AxiosResponse<IHeadlinesResponse, any>) => {
             if (res.status == 200) {
                 resolve({ totalCount: res.data.totalResults, articles: res.data.articles });
             }

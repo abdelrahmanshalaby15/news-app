@@ -7,7 +7,7 @@
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { PropsWithChildren } from 'react';
 import {
   SafeAreaView,
@@ -27,6 +27,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import HomeScreen from './src/screens/home';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -65,6 +66,9 @@ function App(): React.JSX.Element {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+  useEffect(() => {
+    EStyleSheet.build();
+  }, [])
   return (
     <NavigationContainer>
       <Stack.Navigator>

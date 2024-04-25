@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getHeadlines } from "../../api/news";
 import { FlatList, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { NewsCard } from "../../components/newsCard";
 
 interface IProductListingProps {
     navigation: any,
@@ -34,14 +35,11 @@ export default function NewsListing(props: IProductListingProps) {
     }, [])
     return (
         <SafeAreaView>
-            <Text>Hello</Text>
             <FlatList
                 data={newsItems.articles}
                 keyExtractor={(item => item.publishedAt)}
                 renderItem={(info) => {
-                    return <><Text>{info.item.title}</Text>
-                        <Text>//////////////////</Text>
-                    </>
+                    return <NewsCard imageUrl={info.item.urlToImage} title={info.item.title} />
                 }}
                 onEndReached={handlePaginationChange}
                 onEndReachedThreshold={1}
